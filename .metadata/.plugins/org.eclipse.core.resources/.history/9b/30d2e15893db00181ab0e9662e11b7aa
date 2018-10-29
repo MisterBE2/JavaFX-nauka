@@ -1,0 +1,39 @@
+package controllers;
+
+import application.Global;
+import javafx.fxml.FXML;
+
+
+public class MenuScreenController {
+
+	Global g;
+	
+	private MainScreenController msc;
+	
+	// Obs³uga przycisków menui
+	@FXML
+	public void onActionOpenApplication() {
+		msc.loadApplicationScreen();
+	}
+
+	@FXML
+	public void onActionOptions() {
+		
+	}
+
+	@FXML
+	public void onActionExit() {
+
+	}
+	
+	@FXML public void initialize()
+	{
+		g = new Global();
+	}
+	
+	public void setMainController(MainScreenController msc)
+	{
+		this.msc = msc;
+	}
+
+}

@@ -1,0 +1,41 @@
+package controllers;
+
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.layout.Pane;
+
+import java.io.IOException;
+
+import application.Global;
+
+public class ApplicationScreenController {
+	
+	private Global g;
+	private MainScreenController msc;
+
+	@FXML public void onActionReturn()
+	{
+		FXMLLoader ld = g.getResLoader("MenuScreen");
+		Pane obj;
+		try {
+			obj = ld.load();
+
+			MenuScreenController msc = ld.getController();
+			msc.setMainController(msc);
+
+			msc.setScreenPane(obj);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	@FXML public void initialize()
+	{
+		g = new Global();
+	}
+	
+	public void setMainController(MainScreenController msc)
+	{
+		this.msc = msc;
+	}
+}

@@ -1,0 +1,27 @@
+package controllers;
+
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import application.Global;
+
+public class ApplicationScreenController {
+	
+	private Global g;
+	private MainScreenController msc;
+
+	@FXML public void onActionReturn()
+	{
+		FXMLLoader ld = g.getResLoader("MainScreen");
+		msc.setScreen(.load());
+	}
+	
+	@FXML public void initialize()
+	{
+		g = new Global();
+	}
+	
+	public void setMainController(MainScreenController msc)
+	{
+		this.msc = msc;
+	}
+}

@@ -1,0 +1,22 @@
+package controllers;
+
+import javafx.fxml.FXML;
+
+public class MenuScreenController {
+	
+	@FXML public void onActionOpenApplication()
+	{
+		
+	}
+	
+	@FXML public void onActionOpenApplication()
+	{
+		
+	}
+	
+	@FXML public void onActionOpenApplication()
+	{
+		
+	}
+
+}

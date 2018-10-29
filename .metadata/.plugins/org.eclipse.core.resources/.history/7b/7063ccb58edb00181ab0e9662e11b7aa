@@ -1,0 +1,72 @@
+package controllers;
+
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
+
+import java.io.IOException;
+
+import application.Global;
+
+public class MainScreenController {
+	
+	Global g;
+	
+	@FXML private StackPane mainStackPane;
+	
+	@FXML public void initialize()
+	{	
+		g = new Global();
+		
+		FXMLLoader loader  = g.getResLoader("MenuScreen");
+			
+		Pane menu = null;
+		
+		try {
+			menu = loader.load();
+			
+			MenuScreenController menSC = loader.getController();
+			menSC.setMainController(this);
+			
+			setScreenPane(menu);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void setScreenPane(String fxmlName)
+	{
+		FXMLLoader ld = g.getResLoader(fxmlName);
+		
+		try {
+			Pane obj = ld.load();
+			
+			switch (ld.getController().getClass().getName()) {
+			case "controllers.MenuScreenController":
+				MenuScreenController msc = ld.getController();
+				msc.setMainController(this);
+				
+				setScreenPane(obj);
+				break;
+			case "controllers.ApplicationScreenController":
+				
+				break;
+			default:
+				System.out.println("setScreenPane invalid class: "+ld.getController().getClass().getName());
+				break;
+			}
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		
+	}
+	
+	public void setScreenPane(Pane node)
+	{
+		mainStackPane.getChildren().clear();
+		mainStackPane.getChildren().add(node);
+	}
+}

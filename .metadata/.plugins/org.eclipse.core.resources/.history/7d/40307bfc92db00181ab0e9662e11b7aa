@@ -1,0 +1,15 @@
+package controllers;
+
+import application.Global;
+
+public class OptionsScreenController {
+	
+	private Global g;
+	private MainScreenController msc;
+	
+	@FXML onActionReturn()
+	{
+		msc.loadMenu();
+	}
+
+}

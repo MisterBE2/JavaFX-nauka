@@ -1,0 +1,23 @@
+package controllers;
+
+import javafx.fxml.FXML;
+
+public class MenuScreenController {
+
+	// Obs³uga przycisków menui
+	@FXML
+	public void onActionOpenApplication() {
+		System.out.println("Open Application");
+	}
+
+	@FXML
+	public void onActionOptions() {
+		System.out.println("Open Application");
+	}
+
+	@FXML
+	public void onActionExit() {
+		System.out.println("Open Application");
+	}
+
+}

@@ -1,0 +1,60 @@
+package controllers;
+
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
+
+import java.io.IOException;
+
+import application.Global;
+
+public class MainScreenController {
+
+	Global g;
+
+	@FXML
+	private StackPane mainStackPane;
+
+	@FXML
+	public void initialize() {
+		g = new Global();
+		loadMenuScreen();
+	}
+
+	public void loadMenuScreen() {
+		FXMLLoader ld = g.getResLoader("MenuScreen");
+		Pane obj;
+		try {
+			obj = ld.load();
+
+			MenuScreenController msc = ld.getController();
+			msc.setMainController(this);
+
+			setScreenPane(obj);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public void loadApplicationScreen()
+	{
+		FXMLLoader ld = g.getResLoader("ApplicationScreen");
+		Pane obj;
+		try {
+			obj = ld.load();
+
+			ApplicationScreenController asc = ld.getController();
+			asc.setMainController(msc);
+
+			setScreenPane(obj);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void setScreenPane(Pane node) {
+		mainStackPane.getChildren().clear();
+		mainStackPane.getChildren().add(node);
+	}
+}

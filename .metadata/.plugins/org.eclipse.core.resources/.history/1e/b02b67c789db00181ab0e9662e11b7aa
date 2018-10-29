@@ -1,0 +1,10 @@
+package application;
+
+import javafx.fxml.FXMLLoader;
+
+public class GLobal {
+
+	// Zwraca FXMLLoadera powi¹zanego z folderem fxml
+	public static FXMLLoader getResLoader(String fxmlName);
+	
+}

@@ -1,0 +1,52 @@
+package controllers;
+
+import java.io.IOException;
+
+import application.Global;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.layout.Pane;
+import application.Global;
+
+public class MenuScreenController {
+
+	Global g;
+	
+	private MainScreenController msc;
+	
+	// Obs³uga przycisków menui
+	@FXML
+	public void onActionOpenApplication() {
+		FXMLLoader ld = g.getResLoader("ApplicationScreen");
+		try {
+			Pane pane = ld.load();
+			ApplicationScreenController asc = ld.getController();
+			asc.setMainController(msc);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	
+		
+	}
+
+	@FXML
+	public void onActionOptions() {
+		
+	}
+
+	@FXML
+	public void onActionExit() {
+
+	}
+	
+	@FXML public void initialize()
+	{
+		g = new Global();
+	}
+	
+	public void setMainController(MainScreenController msc)
+	{
+		this.msc = msc;
+	}
+
+}
