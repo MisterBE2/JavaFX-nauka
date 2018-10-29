@@ -1,0 +1,29 @@
+package controllers;
+
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
+
+import java.io.IOException;
+
+import application.Global;
+
+public class MainScreenController {
+
+	Global g;
+
+	@FXML
+	private StackPane mainStackPane;
+
+	@FXML
+	public void initialize() {
+		g = new Global();
+		loadMenuScreen();
+	}
+	
+	public void setScreenPane(Pane node) {
+		mainStackPane.getChildren().clear();
+		mainStackPane.getChildren().add(node);
+	}
+}
